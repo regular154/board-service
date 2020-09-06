@@ -1,0 +1,50 @@
+GET /snowboard/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+PUT /snowboard
+
+PUT /snowboard/_mapping
+{
+  "properties": {
+    "year": {"type": "integer"},
+    "name": {"type": "keyword"},
+    "code": {"type": "keyword"},
+    "size": {"type": "keyword"},
+    "terrain": {"type": "keyword"},
+    "ridingLevel": {"type": "keyword"},
+    "bend": {"type": "keyword"},
+    "shape": {"type": "keyword"},
+    "details": {"type": "text"},
+    "spec": {
+      "properties": {
+        "contactLength": {"type": "integer"},
+        "sideCut": {"type": "double"},
+        "noseWidth": {"type": "double"},
+        "tailWidth": {"type": "double"},
+        "waistWidth": {"type": "double"},
+        "flex": {"type": "integer"},
+        "weightRange": {"type": "integer"},
+        "stance": {
+          "properties": {
+            "min": {"type": "double"},
+            "max": {"type": "double"},
+            "setBack": {"type": "double"}
+          }
+        }
+      }
+    },
+    "features": {
+      "properties": {
+        "type": {"type": "keyword"},
+        "name": {"type": "keyword"},
+        "description": {"type": "text"}
+      }
+    }
+  }
+}
+
+DELETE /snowboard/_mapping
