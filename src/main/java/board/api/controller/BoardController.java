@@ -155,7 +155,7 @@ public class BoardController {
     private BoardPageParameters getBoardPageParameters(Map<String, String> requestParams) {
         BoardPageParameters parameters = new BoardPageParameters();
         parameters.setPage(Optional.ofNullable(requestParams.get("page")).map(Integer::parseInt).orElse(0));
-        parameters.setPageSize(Optional.ofNullable(requestParams.get("pageSize")).map(Integer::parseInt).orElse(10));
+        parameters.setPageSize(Optional.ofNullable(requestParams.get("pageSize")).map(Integer::parseInt).orElse(9));
         parameters.setSortBy(Optional.ofNullable(requestParams.get("sortBy")).orElse("year"));
         parameters.setSortOrder(Optional.ofNullable(requestParams.get("sortOrder")).orElse("desc"));
         return parameters;
